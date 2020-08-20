@@ -1,0 +1,24 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Build and push the Docker image
+        uses: docker/build-push-action@v1.1.0
+        with:
+          repository: rcopstein/open-store-server/server
+          password: ${{ secrets.GITHUB_TOKEN }}
+          dockerfile: '.docker/Dockerfile'
+          registry: docker.pkg.github.com
+          username: ${{ github.actor }}
+          tag_with_sha: true
+          tags: develop

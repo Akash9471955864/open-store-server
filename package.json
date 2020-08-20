@@ -1,0 +1,51 @@
+{
+  "name": "backend",
+  "main": "index.js",
+  "scripts": {
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "dev": "concurrently \"npm:build:dev\" \"npm:start:dev\"",
+    "build:dev": "tsc --watch --preserveWatchOutput",
+    "start:dev": "nodemon dist/index.js",
+    "build": "NODE_ENV=production tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "author": "Rafael Copstein",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "inversify": "^5.0.1",
+    "inversify-logger-middleware": "^3.1.0",
+    "mailgun-js": "^0.22.0",
+    "pg": "^7.18.2",
+    "reflect-metadata": "^0.1.13",
+    "stripe": "^8.32.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.3",
+    "@types/jest": "^25.2.3",
+    "@types/mailgun-js": "^0.22.4",
+    "@types/pg": "^7.14.3",
+    "@types/stripe": "^7.13.22",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-jest": "^26.1.0",
+    "concurrently": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.2",
+    "typescript": "^3.9.6"
+  }
+}
